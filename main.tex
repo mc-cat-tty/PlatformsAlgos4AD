@@ -1,0 +1,135 @@
+\documentclass[12pt,a4paper,twoside,onecolumn,openright]{book}
+\usepackage[inner=3cm,outer=2.5cm,top=3cm,bottom=2.5cm]{geometry}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{lmodern}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{subfigure}
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage[export]{adjustbox}
+\usepackage{latexsym}
+\usepackage{mathtools}
+\usepackage{color}
+\usepackage{gensymb}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{cleveref}
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage{csquotes}
+\usepackage[inkscapelatex=false]{svg}
+\usepackage{forest}
+\usepackage[cleardoublepage=plain]{scrextend}
+\usepackage{xltabular}
+
+% Title format
+%\titleformat{\chapter}[display]{\bfseries\Huge}{}{0pt}{}
+\titleformat{\chapter}[hang]
+    {\bfseries\Huge}
+    {\thechapter{. }}
+    {0pt}
+    {\bfseries\Huge}
+
+\titlespacing{\chapter}{0pt}{-5ex}{2ex}
+
+% Page Layout
+\fancypagestyle{mainmatter}{%		
+		\fancyhf{} 
+		\fancyhead{}
+		\fancyhead[LE,RO]{\thepage}
+		\fancyhead[LO]{\footnotesize{\leftmark}}
+		\fancyhead[RE]{\footnotesize{\rightmark}}
+		\fancyfoot{}
+		\addtolength{\headwidth}{\marginparsep}
+		\addtolength{\headheight}{2.5pt}
+		\renewcommand{\headrulewidth}{0.3pt}
+		\renewcommand{\footrulewidth}{0.0pt}
+		}
+\fancypagestyle{frontmatter}{%
+		\fancyhf{} 
+		\fancyhead[LE]{\footnotesize{\MakeUppercase{\thepage}}}
+		\fancyhead[RO]{\footnotesize{\MakeUppercase{\thepage}}}
+		\fancyhead[RE,LO]{}
+		\fancyfoot{}
+		\addtolength{\headwidth}{\marginparsep}
+		\addtolength{\headheight}{2.5pt}
+		\renewcommand{\headrulewidth}{0.0pt}
+		\renewcommand{\footrulewidth}{0.0pt}
+		}
+		
+		
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+		\fancyhf{} 
+		\fancyhead{}
+		\fancyhead[LE,RO]{\thepage} 
+		\fancyhead[LO]{\footnotesize{\leftmark}}
+		\fancyhead[RE]{\footnotesize{\rightmark}}
+		\fancyfoot{}
+		\addtolength{\headwidth}{\marginparsep}
+		\addtolength{\headheight}{2.5pt}
+		\renewcommand{\headrulewidth}{0.3pt}
+		\renewcommand{\footrulewidth}{0.0pt}
+
+% Empty pages have no page number
+
+
+\begin{document}
+\begin{sloppypar}
+
+\begin{titlepage}
+\begin{center} {
+    \large
+    \textbf{University of Modena e Reggio Emilia} \\
+     \textbf{Department of Physics, Informatics and Mathematics} \\
+    \vspace{\stretch{0.5}}
+    \hspace*{0cm} \hrulefill \hspace*{0cm} \\
+    \vspace{\stretch{0.5}}
+    Master's degree in Computer Science
+    
+    \vspace{\stretch{12}}
+    \begin{spacing}{1}
+        \huge{\bf High Performance Computing}
+    \end{spacing}
+}
+\vspace{3mm}
+\vspace{\stretch{6}}
+\end{center}
+
+\vspace{40mm}
+\par
+\noindent
+\hfill
+\begin{minipage}[t]{0.47\textwidth}\raggedleft
+{\large{\bf Author:\\ Francesco Mecatti}}
+\end{minipage}
+\vspace{10mm}
+
+\begin{center}
+\hspace*{0cm} \hrulefill \hspace*{0cm} \\
+\vspace{5mm}
+{\large{\bf Academic Year 2024-2025}}
+\end{center}
+\end{titlepage}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\frontmatter
+\mainmatter
+
+\newcommand{\whitepage}{\hbox{}\thispagestyle{empty}\newpage}
+
+\renewcommand{\contentsname}{Table of Contents} \tableofcontents
+\include{chapters/introduction.tex}
+
+\end{sloppypar}
+\end{document}
