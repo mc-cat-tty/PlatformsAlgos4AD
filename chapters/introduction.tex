@@ -1,55 +1,16 @@
 \chapter{Introduction}
 
-Introduction on heterogenous system, parallel programming models, hardware accelerators, etc.
+\section{Overview}
+Two main modules are presented in the course: perception \& estimation, planning \& control.
 
 \section{Resources}
-Slides are generally enough + lab hands-on.
-
-Further readings:
 \begin{itemize}
-  \item An Introduction to Parallel Programming, Peter Pacheco
-  \item CUDA reference manual
+  \item Probabilistic Robots, Wolfram Burgard et. al.
+  \item Creating Autonomous Vehicle System, Liyun et. al.
+  \item Udacity robotics \& SDCE course
+  \item Coursera self-driving course
 \end{itemize}
 
-\section{Course Overview, Prerequisites and Objectives}
-\subsection{Objectives}
-We are going to see:
-\begin{itemize}
-  \item architectural paradigms for parallel and accelerated computation such as multicore CPU, GPU, FPGA, and NPU
-  \item program profiling and performance evaluation, along with issues and optimization opportunities
-  \item Intermediate OpenMP programming for Intel CPU programming
-  \item Intermediate CUDA programming for NVIDIA GPU programming
-  \item HLS - High Level Synthesis - for FPGA programming
-\end{itemize}
-
-\subsection{Overview}
-Course units:
-\begin{enumerate}
-  \item Theoretical unit about parallel and heterogenous computing architectures and common hardware models
-  \item Programming models for parallel architectures with hands-on labs: NVIDIA Tegra and Xilinx Zyqn architecture have been picked as platforms for lab sessions
-\end{enumerate}
-
-We should rather talk about GPGPU, which stands for General Purpose GPU, since nowadays they are used improperly for tasks other than graphics rendering.
-
-Be aware of the difference between dGPU and iGPU:
-\begin{itemize}
-  \item iGPU - Integrated GPU - less powerful but data can be moved faster
-  \item dGPU - Discrete GPU - much powerful but you pay the price of traversing a path far from the CPU
-\end{itemize}
-
-Development boards enable introspection on the system during development process: we can understand what's going on in the system.
-
-\subsection{Motivation}
-Supercomputing vs High Performance Computing. They are different: HPC moves the focus on SoC (not huge scale computers) and their heterogeneous/parallel composition.
-The same challenges that where thightly bound to supercomputers are now exhibited by this kind of smaller pocket systems.
-
-Embedded Systems (ESs) are the central actors of this revolution. An escalation in this sector has been marked by the following concepts:
-\begin{itemize}
-  \item 
-\end{itemize}
-
-See Gordon Bell, Renesas R-CAR V3U, Hilisicon Kirin
-
-Final objective: learn how to offload workload from main CPU to dedicated subsystems.
-
-See big.LITTLE ARM architecture
+\section{Evaluation}
+6 assignments, 3 for each module, will be evaluated in order to determine the final mark.
+The final mark is based for the 60\% on the 6 assignment and for the 40\% on the quality of the 

@@ -1,0 +1,21 @@
+\chapter{Clustering}
+The objective of clustering is find and segment individual objects from a scene captured by a point cloud.
+
+The steps required to achieve clustering is:
+\begin{itemize}
+  \item down sample the PC -> reduce points number for ease of processing
+  \item segment ground plane
+  \item create KD on top of the points
+  \item compute euclidean distance -> build clusters
+  \item the algorithm terminates when all clusters have been processed
+\end{itemize}
+
+We are using the PCL library for the lab session.
+PCD - Point Cloud Data - is the file format used to store point cloud data.
+The header of this file lists some metadata related to the point-cloud.
+
+\section{Filtering}
+Voxel filtering is the technique that allows us to downsample 2D or 3D points.
+It consists in computing the centroid of each voxel/2D square of the pointcloud.
+
+RANSAC is a Random Consensus Algorithm for filtering 2D and 3D scenes by removing outliers.

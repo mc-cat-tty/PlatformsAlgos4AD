@@ -1,0 +1,75 @@
+\chapter{Sensors}
+
+\section{Classification}
+A sensor is a device that measures a property of the environemnt.
+They are classified into two classes depending on what they measure:
+\begin{itemize}
+  \item Proprioceptive: sensing of the vehicle itself
+  \item Exteroceptive: sensing of the external environment
+\end{itemize}
+
+\section{Parameters}
+\begin{itemize}
+  \item Range: maximum distance at which the sensor can detect objects
+  \item FoV: horizontal or vertical angular width observable by the sensor
+  \item Wavelegth: type of EM waves used to operate
+  \item Spatial coverage: dimentional extent
+  \item Resolution: granularity of the measures
+  \item Update rate: frequency at which data are provided
+  \item Robustness to weather
+\end{itemize}
+
+\section{Type of Sensors and Working Principles}
+\subsection{LiDAR}
+Stands for Light Detection and Ranging.
+HDL-32E and OS-1 128 are notorious examples.
+
+See Reflectance Spectroscopy
+
+Solid-state LiDARs do not operate relying on mechnical parts, rather they can take shots of the PC instantly without spinning the beam array.
+Multiple-return LiDARs allow to capture several reflections from the same source bean. Useful to filter out small objects particles like sand grains or dust.
+Several different dimentionalities of the PC are possible: 1D aka just the ditance, 2D aka a slice of distances and 3D the whole environment 3D-mapped.
+
+There are several algorithm for working with PC: PointPillars for object detection, PointNet for object detection, Kalman Filter and EKF for object tracking.
+
+\subsection{Radar}
+Stands for Radio Detection and Ranging.
+Radars relies on time of flight and doppler effect to estimate distance, radial velocity and direction of objects surrounding the radar.
+
+Depending on the type of radar the provide different types of data. Basically, raw data are provided by the radar itself, then some metrics can be computed upon these information.
+
+Used for forward collision warning, adaptive cruise control, et sim..
+
+See: ARS301
+
+\subsection{Camera}
+Monocular cameras may estimate objects' distance despite the absence of an instrinsic metric data. Indeed, distances can be worked out of the raw data through software algorithms.
+
+See: automotive Ethernet and GMSL - Gigabit Multimedia Serial Link; Fakra connector.
+
+In sum, they are good at taking color images (hopefully) in bright and dark environments, but cannot provide depth infomation.
+
+Vedi: Sony Vision S, Afeela EV
+
+In contrast to monocular cameras, stereo cameras are a series of at least two cameras used to mimic human binocular vision; a proper processing can provide depth estimation in the form of a depth map.
+Disparity map is another map that can be derived from stereo cameras, by computing the difference between two images.
+
+Thermal, thermographic and infrared cameras.
+
+Event based cameras.
+
+\subsection{GPS}
+Has several drawbacks such as weather dependency (bad weather impacts on the performance of the GPS due to the reduced strength of the signal), geographic position (GLONASS, Beidou, etc.), and the need of at least three "fixes", even more so considering the low precision it can offer.
+
+Dead reckoning: localization estimation without information from an external frame of reference, computed just with proprioceptive sensors.
+It is subject to the drift problem, which is described as the problem of loosing localization.
+
+\subsection{Tonewheel}
+Mounting an encoder to the wheel can provide information about the speed of the single wheel. Integrating such speeds, wheel drift and car speed information can be obtained.
+
+\section{Sensor Fusion and Conclusion}
+The best approach to localization is definetly sensor fusion.
+Fusing multiple sensors not only allows to take the best from each sensor, but also to increase the frequency of the localization itself, by performing dead reckoning in inter-times and correcting it with high-quality low-frequency data.
+
+See: Tesla Dojo (D1) ASIC, Waymo's array of EARs - External Audio Receivers, Nio ET7.
+

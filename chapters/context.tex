@@ -1,0 +1,78 @@
+\chapter{History}
+
+\section{timeline}
+\begin{itemize}
+  \item 1930 -- first electronic component on a Vehicle
+  \item TODO
+  \item 1980 -- OBD is introduced
+\end{itemize}
+
+Today up to 2500 singals are exchanged through up to 150 ECUs, over at least 5 types of busses. Ford F-150 has 150M lines of codes onboard.
+
+\section{ADAS vs AD}
+ADAS -- Advanced Driver Assistance System -- are technologies for driver's safety or convenience. The responsibility os leaved to the user of the system.
+
+AD -- Autonomous Driving -- takes the responsibility away from the driver and puts it in the system.
+
+Notice the difference between logitudinal (accelerator) and lateral (path) control.
+
+See DARPA challenge.
+
+ODD - Operational Design Domain - defines the scenarios where the vehicle must be functional.
+
+\section{AD Classification}
+
+\subsection{SAE Autonomous Driving Levels}
+\begin{itemize}
+  \item 0. No automation
+  \item 1. Driver automation: adaptive cruise control, line keeping
+  \item 2. Partial assistance: both cruse control and line keeping
+  \item 3. TODO
+  \item 4. TODO
+  \item 5. Full autonomous: unlimited ODD
+\end{itemize}
+
+\subsection{Types of AD}
+Many types of AD approaches exist: geometrical approach (classical one), end-to-end approach based on deep learning, LLM- and multimodal- based models.
+
+A classical AD pipeline is comprised of several sequential stages:
+\begin{enumerate}
+  \item Sensing: sense the environment (sensors and V2V signals)
+  \item Perception: broke up in environmental perception and localization
+    \begin{enumerate}
+      \item Environmentlal perception: ranges from easy solutions (aka detect and consider still) up to 
+        \begin{enumerate}
+          \item object detection
+          \item object classification
+        \end{enumerate}
+      \item localization
+    \end{enumerate}
+  \item Planning: plans a path; this task is iterated multiple times at different Levels
+    \begin{enumerate}
+      \item mission/global planning
+      \item behavioral planning
+      \item motion/local planning
+    \end{enumerate}
+  \item Control: tries to follow the path with a control algo
+    \begin{itemize}
+      \item Longitudinal control
+      \item Lateral control
+    \end{itemize}
+\end{enumerate}
+
+Different sensors are used for creating ADAS and AD applications: LiDAR, radar, cameras, IMUs and GPS receivers.
+
+Other kinds of approaches to the AD problem are being explored. Machine learning based approaches are primarly divided into full end-to-end and hybrid end-to-end.
+\begin{itemize}
+  \item Full end-to-end directly maps each sensor to each actutor and lets the hidden layer of the NN learn complex patterns without decomposing the main problem into subproblems
+  \item Hybrid end-to-end mixes classical stages with NN-based stages. Eg.: the localization might still be provided by a classical pipeline, while some of the other stages might be implemeted through a NN 
+\end{itemize}
+
+\section{Players}
+\begin{enumerate}
+  \item Waymo
+  \item Beidu
+  \item Cruse
+  \item Zoox
+  \item Pony.AI
+\end{enumerate}

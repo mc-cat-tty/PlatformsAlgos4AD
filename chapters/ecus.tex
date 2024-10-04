@@ -1,0 +1,66 @@
+\chapter{Electronic Control Units}
+
+In this chapter we will cover ECU types, architectural organization of ECUs, Software Defined Vehicles, software and hardware safety designs.
+
+\section{History}
+The history of vehicles, as far as control units are concerned, can be roughly divided into 6 phases:
+\begin{enumerate}
+  \item <1970 - Mechanical era - Purely mechanical systems, no electronics on board
+  \item 1970-1980 - Electronic era - ECUs manage fuel injection and other subsystems of the powertrain/brakes/throttle. See Bosch ???
+  \item 1980-2000 - Digital - 
+  \item 2000-now - ADAS
+  \item 2010-now - AD
+\end{enumerate}
+
+\section{State of the Art}
+Mobileye EyeQ1
+
+\section{ECU Types}
+ECUs range from simple one-task microcontrollers to advanced AD compute units.
+
+Inner computation compnents characterize the type of ECU.
+CPU-based architectures are the simplest one. They differentiate between single- and multi-core architectures.
+
+See: NVIDIA Parker architecture, NVIDIA Drive PX2
+
+Why two separate processing islands? ???
+
+FPGAs enable to provide hardware implementations of algorithms, taking advantage of the instrinsic parallelizable nature of the algorithm.
+
+See: ACU - Apollo Computing Unit - used by Beidou for autonomous parking
+
+ASICs are the most specific hardware units used for computation right now. They can be categorized into VPUs (Vison Processing Units), TPUs (Tensor Processing Units) and NPUs (Neural Processing Units).
+
+Tesla HW3: TODO.
+Tesla developed an architecture called FSD Computer 2 inside a SoC mounted on Tesla hardware design 4.
+
+See: Hailo 8.
+
+\section{Architectures}
+Depending on the historical moment in which the architecture has been developed, different organizations of ECUs can be found.
+
+In a distributed E/E architecture a network of dedicated ECUs is present in the vehicle.
+This is the simplest one but also the most vulnerable to vendor's locking.
+
+The different units are allowed to intercommunicate through a shared bus, such as CAN.
+A domain-based architecture groups the ECUs in domains depending on their task. The ECUs belonging to the same domain can communicate between them.
+Domains are interconnected through a fronteir ECU.
+
+Zonal architecture is the evolution of domain-based architecture. This arch saves wiring and hareness.
+It relies on the principle that a compute unit of each zone can process all the sensors and actuators of the zone.
+
+The most recent architecture that is catching on is called Software Defined Vehicle enabled by a zonal E/E arch which allows to host heavy-duty algorithms, high-performance ECUs, virtualization, real-time connectivity.
+
+View: rival zonal architecture.
+
+\section{Safety}
+Safety can be ensured in several ways, mainly through redundancy, implemented at either software or hardware level.
+Software-level redundancy exploits algorithmic diversity to compare and check.
+Hardware-level redundacy .
+
+As you may notice diversity is a key concept in redundancy. Provides robustness against systematic algorithmic errors.
+Replication itself mitigates random faults which can still affect diverse executions.
+
+Comparing results of software and hardware replicas through a comparator or a voting circuit ensure different units arrive to the same result.
+
+Vedi: Mariani NVDIA
