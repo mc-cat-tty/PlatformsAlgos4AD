@@ -1,13 +1,14 @@
 \chapter{Clustering}
-The objective of clustering is find and segment individual objects from a scene captured by a point cloud.
+The objective of clustering is find and segment individual objects from a scene captured by a point cloud;
+the objects usually lay on a plane that must be desiderably excluded from the cloud. 
 
-The steps required to achieve clustering is:
+The steps required to achieve clustering are:
 \begin{itemize}
-  \item down sample the PC -> reduce points number for ease of processing
-  \item segment ground plane
+  \item down sample the PC to reduce points number for ease of processing
+  \item segment and remove the ground plane
   \item create KD on top of the points
-  \item compute euclidean distance -> build clusters
-  \item the algorithm terminates when all clusters have been processed
+  \item compute euclidean distance between point pairs and build clusters
+  \item the algorithm terminates when all points have been processed; aka when each points is part of a cluster
 \end{itemize}
 
 We are using the PCL library for the lab session.
@@ -19,3 +20,13 @@ Voxel filtering is the technique that allows us to downsample 2D or 3D points.
 It consists in computing the centroid of each voxel/2D square of the pointcloud.
 
 RANSAC is a Random Consensus Algorithm for filtering 2D and 3D scenes by removing outliers.
+
+\section{KD Tree}
+TODO: Intuition, algorithms and visual examples
+
+PCL Library offers different important methods and data structures:
+- PointXYZ represents a point in a 3D space
+- EuclideanClusterExtraction is the class that holds parameters and can be used to get the vector of clusters
+- setClusterTolerance defines the size of spherical neuighbours used to cluster the cloud
+- min cluster size is useful to filter out noise from the pointcloud and depends on the downsampling factor as well as the tolerance
+
