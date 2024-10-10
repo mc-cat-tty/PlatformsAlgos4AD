@@ -1,0 +1,40 @@
+\chapter{Kalman Filter}
+
+See: \url{https://www.kalmanfilter.net/default.aspx}
+
+\section{Intuition}
+An oversimplified example would be a dot/object moving in 1D world with a costant speed.
+
+The basic idea under the Kalman filter is state estimation (see also dead reckoning).
+That is to say that the state (position, velocity, etc.) is predicted by the filter based on a model (eg. kinematic model) of the system under analysis.
+
+Pipeline: prediction (also referred to as estimation), correction update and 
+
+Let's assume that we wear the wrong pair of glasses (translated would be comparable to noisy sensor) while walking.
+What could happen? given that our vision of the world is distorted, we can wrongly estimate our position and compensate the uncorrect information with other proprioceptive measurements.
+The filter has to keep this into consideration: both the model and the sensors can drift, diverge and accumulate error.
+
+Lastly, problems can arise if the model is used in unexpected scenarios, such as a slippery road in case of a car.
+
+TODO: diagram inti predict correct
+
+From an historical point of view, USA and Russia were in the space race.
+
+\section{Gaussians}
+The uncertainty distribution of both state estimation and sensors measurement is modeled by a gaussian distribution.
+In other words, each sensor has a gaussian distribution associted with the measurements it provides; the same holds for the predicted state, depending on how reliable the model is.
+
+The correct-update cycle can be implemented in different several ways: continous prediction and once-every-period update, one prediction after each update update.
+
+\subsection{Update and Prediction Fomulas}
+TODO: see conditional probability associated with gaussian probability
+
+\section{Multivariate KF}
+Real-world problems are usually modeled through a multivariate Kalman Filter.
+Multiple variables, aka multiple sensors, are fed into the state estimation block.
+
+This time we not only want to estimate the system's state with an uncertain (to a certain amount) measurement, but also to extrapolate the covariance between sensors by observing how they dift over time with respect to each other.
+
+TODO: KF formulas hidden variables
+
+It looks like periodic updates are better than aperiodic ones.
